@@ -11,7 +11,8 @@ fun main() {
             4. Check-Out
             5. View Attendance Records
             6. View Total Working Summary
-            7. Exit
+            7. Delete an Employee
+            8. Exit
         """.trimIndent()
         )
 
@@ -75,8 +76,13 @@ fun main() {
             "5" -> println(employeeManager.viewAttendance())
 
             "6" -> println(employeeManager.viewSummary())
-
-            "7" -> {
+             "7" -> {
+                 println("enter employee id to delete")
+                 val id = readLine()!!.trim()
+                 val deleted = employeeManager.deleteEmployee(id)
+                 println(if(deleted) "Employee deleted " else "no employee found with ID $id")
+             }
+            "8" -> {
                 println("Exiting...!")
                 return
             }
